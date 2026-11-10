@@ -13,6 +13,7 @@
     <nav aria-label="Main navigation">
       <a href="#experience">Experience</a>
       <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
       <a href="https://drive.google.com/file/d/1hp3mjwei9_mwlhxb3pXNIh4I0FGHEsMc/view?usp=sharing">Résumé <span aria-hidden="true">↗</span></a>
       <a href="https://github.com/surya1729">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
@@ -100,11 +101,47 @@
         </li>
       </ol>
     </section>
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Technical skills</h2>
+      <dl class="skills-list">
+        <div><dt>Languages</dt><dd>Go, Python, C, C++, Java</dd></div>
+        <div><dt>Cloud</dt><dd>AWS, Google Cloud (GCP)</dd></div>
+        <div><dt>Databases</dt><dd>MySQL, DynamoDB, Cloud Spanner</dd></div>
+        <div><dt>Tools</dt><dd>Git, Docker, Jenkins, GitLab CI/CD, Terraform, LaTeX</dd></div>
+        <div><dt>Web</dt><dd>HTML, CSS</dd></div>
+        <div><dt>Operating systems</dt><dd>Linux, macOS, Windows</dd></div>
+      </dl>
+    </section>
   </main>
 
   <footer>
     <span>Suryapratap Chalumuri</span>
+    <span id="bengaluru-clock" hidden>Bengaluru · <time></time></span>
     <a href="https://www.linkedin.com/in/suryapratap-chalumuri-62b403172/">LinkedIn <span aria-hidden="true">↗</span></a>
   </footer>
+  <script>
+    const clock = document.getElementById("bengaluru-clock");
+    const time = clock.querySelector("time");
+    const formatter = new Intl.DateTimeFormat("en-IN", {
+      timeZone: "Asia/Kolkata",
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    });
+
+    function updateClock() {
+      const now = new Date();
+      time.dateTime = now.toISOString();
+      time.textContent = formatter.format(now) + " IST";
+    }
+
+    updateClock();
+    clock.hidden = false;
+    setInterval(updateClock, 1000);
+  </script>
 </body>
 </html>
